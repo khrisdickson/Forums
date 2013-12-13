@@ -1,0 +1,54 @@
+body {
+	background-image:url("/~100083097/year2/web/forum/images/background.jpg");
+	background-color: black;
+	background-repeat: no-repeat;
+	background-position: top center;
+	color: red;
+}
+#wrapper {
+padding: 10px;
+margin: auto;
+width: 60%;
+background: #FFFFFF;
+border: solid 1px #000;
+margin-top: -8%;
+}
+
+#footer {
+	text-align: center;
+	background: url("/~100083097/year2/web/forum/images/footer.png");
+border: 2px #a2a2a2 solid;
+height: 30px;
+padding: 40px;
+font-size: 11px;
+line-height: 24px;
+clear: both;
+}
+/*start of nav styling */
+ #nav {
+float: left;
+padding: 0;
+width: 100%;
+list-style: none;
+background-color: #f2f2f2;
+border: 1px solid #ccc;
+
+font-size: 20px;
+
+	}
+   #nav li {
+      float: left; }
+   #nav li a {
+      display: block;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #00a8c6;
+      border-right: 1px solid #ccc; }
+   #nav li a:hover {
+      color: #ff001e;
+      background-color: #fff; }
+   /* End navigation bar styling. */
+   #userbar {
+   	float: right;
+   }

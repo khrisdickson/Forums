@@ -1,5 +1,7 @@
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html>
-
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
@@ -9,15 +11,19 @@
 	
 	
 	<body>
-	<h1>Forum Title</h1>
+	<div id="Logo"><img src="/~100083097/year2/web/forum/images/LLF.jpg"></div>
 	<div id = "wrapper">
 		<div id = "nav">
+		<li><a href="index.php">Forums</a></li>
+      <li><a href="members.php">Members</a></li>
+      <li><a href="signup.php">Join Now!</a></li>
 		
-		<?php  
-		echo '<div id="userbar">';  
+
+		<div id="userbar">
+		<?php 
 		    if($_SESSION['signed_in'])  
 		    {  
-		        echo 'Hello' . $_SESSION['username'] . '. Not you? <a href="signout.php">Sign out</a>';  
+		        echo 'Hello ' . $_SESSION['username'] . '. Not you? <a href="logout.php">Sign out</a>';  
 		    }  
 		    else  
 		    {  

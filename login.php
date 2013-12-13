@@ -1,6 +1,8 @@
 <?php  
+session_start();
 include 'connectvars.php';  
 include 'header.php';  
+
   
 echo '<h3>Sign in</h3>';  
   
@@ -55,16 +57,10 @@ else
             //the form has been posted without errors, so save it 
             //notice the use of mysql_real_escape_string, keep everything safe! 
             //also notice the sha1 function which hashes the password 
-            $sql = "SELECT  
-                        userid, 
-                        username, 
-                        userleague 
-                    FROM 
-                        Users 
-                    WHERE 
-                        username = '" . mysql_real_escape_string($_POST['username']) . "' 
+            $sql = "SELECT userid, username, userleague, admin FROM Users WHERE 
+                    username = '" . mysql_real_escape_string($_POST['username']) . "' 
                     AND 
-                        password = '" . sha1($_POST['password']) . "'";  
+                    password = '" . sha1($_POST['password']) . "'";  
                           
             $result = mysql_query($sql);  
             if(!$result)  
@@ -93,6 +89,7 @@ else
                         $_SESSION['userid']    = $row['userid']; 
                         $_SESSION['username']  = $row['username']; 
                         $_SESSION['userleague'] = $row['userleague']; 
+                        $_SESSION['admin'] = $row['admin'];
                     } 
                      
                     echo 'Welcome, ' . $_SESSION['username'] . '. <a href="index.php">Proceed to the forum overview</a>.'; 

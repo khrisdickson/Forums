@@ -1,5 +1,6 @@
 <?php 
 session_start(); 
+date_default_timezone_set('US/Eastern');
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,11 +30,11 @@ session_start();
 		    {  
 		        echo '<a href="login.php">Sign in</a> or <a href="signup.php">create an account</a>.';  
 		    }  
-		echo '</div>'; 
 		?>
+		</div>
 		
 		</div>
 		
 		
-		<div id =  "content">
+		<div id = "content">
 		

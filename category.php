@@ -6,12 +6,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 {  
     //the form hasn't been posted yet, display it  
     echo '<form method="post" action="">  
-        Category name: <input type="text" name="categoryname" />  
-        Category description: <textarea name="categorydescription" /></textarea>  
+        Category name: <br /><input type="text" name="categoryname" />  <br />
+        Category description: <br /><textarea name="categorydescription" /></textarea> <br />
         <input type="submit" value="Add category" />  
      </form>'; 
 } 
-else 
+else
 { 
 	if($_SESSION['admin'] == 1){
     //the form has been posted, so save it 
@@ -29,7 +29,7 @@ else
     {  
         echo 'New category successfully added.';  
     }  
-}  
+}
 
 include 'footer.php';
 ?>  

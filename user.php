@@ -1,7 +1,6 @@
-<html>
-
-<body>
 <?php
+include 'connectvars.php';
+include 'header.php';
 
 session_start();
 
@@ -19,7 +18,7 @@ $conn = mysqli_connect ('webdesign4.georgianc.on.ca','db100083097','871124','db1
 
 $id = $_GET['userid'];
 
-  $sql = "SELECT username FROM Users WHERE userid = $id;";
+  $sql = "SELECT username, email FROM Users WHERE userid = $id";
   $result = mysqli_query($conn, $sql) or die('Error querying database.');
 
   while ($row = mysqli_fetch_array($result)) {
@@ -37,9 +36,7 @@ $id = $_GET['userid'];
 
 ?>
 
-/*
-	when save is clicked the page will then run update_user.php
-*/
+
 <form method="post" action="update_user.php">
 <div>
 	<label>username</label>

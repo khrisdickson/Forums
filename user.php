@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 include 'connectvars.php';
 include 'header.php';
@@ -17,8 +19,11 @@ else {
 $conn = mysqli_connect ('webdesign4.georgianc.on.ca','db100083097','871124','db100083097') or die('Error connecting to MySQL server');
 
 $id = $_GET['userid'];
+$username = $_GET['username'];
+$email = $_GET['email'];
 
-  $sql = "SELECT username, email FROM Users WHERE userid = $id";
+  $sql = "SELECT * FROM Users WHERE username = '" . mysql_real_escape_string($_POST['username']) . "'"; 
+                    
   $result = mysqli_query($conn, $sql) or die('Error querying database.');
 
   while ($row = mysqli_fetch_array($result)) {
@@ -49,7 +54,7 @@ $id = $_GET['userid'];
 </div>
 
 
-<input type="hidden" name="userid" value="<?php echo $id;?>" />
+<input type="hidden" name="id" value="<?php echo $id;?>" />
 <input type="submit" value="Save" />
 
 </form>

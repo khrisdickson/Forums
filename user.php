@@ -1,10 +1,15 @@
+<!-- this page after clicking on the edit link in edit_user.php
+ will allow the user to adjust their desired information -->
+
 <html>
 <body>
 <?php
+session_start();
+
 include 'connectvars.php';
 include 'header.php';
 
-session_start();
+
 
 /*
 	this is so if some one were to type the link into the url they would still
@@ -22,26 +27,29 @@ $id = $_GET['userid'];
 $username = $_GET['username'];
 $email = $_GET['email'];
 
-  $sql = "SELECT * FROM Users WHERE username = '" . mysql_real_escape_string($_POST['username']) . "'"; 
-                    
-  $result = mysqli_query($conn, $sql) or die('Error querying database.');
+	//selects the database from the row that was clicked in edit user.php by using userid
+	$sql = "SELECT * FROM Users WHERE userid = '" . mysql_real_escape_string($_POST['id']) . "'"; 
+    
+    //if the connection fails the error query database will be seen                
+  	$result = mysqli_query($conn, $sql) or die('Error querying database.');
 
+  // grabs current information from the database to display it in its 
   while ($row = mysqli_fetch_array($result)) {
-	$id = $row['userid'];
+	//$id = $row['userid'];
 	$username = $row['username'];
 	$email = $row['email'];
 
   } 
 
-  mysqli_close($conn);
+ 
 
-	echo '<a href="Logout.php">Log Out</a>';
+	
 
 }
 
 ?>
 
-
+//form used to update information
 <form method="post" action="update_user.php">
 <div>
 	<label>username</label>

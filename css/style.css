@@ -52,3 +52,13 @@ font-size: 20px;
    #userbar {
    	float: right;
    }
+   table {
+   border-width: 4px;
+-moz-border-image: url(bgborder2.png) 35 35 stretch;
+-webkit-border-image: url(bgborder2.png) 35 35 stretch;
+width: 400px;
+padding: 10px 10px;
+height: inherit;
+width: 100%;
+   
+   }

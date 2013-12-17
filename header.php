@@ -17,19 +17,20 @@ date_default_timezone_set('US/Eastern');
 		<div id = "nav">
 		<li><a href="index.php">Forums</a></li>
       <li><a href="members.php">Members</a></li>
+      <li><a href="edit_user.php">Edit Profile</a></li>
       <li><a href="signup.php">Join Now!</a></li>
 		
 
 		<div id="userbar">
-		<?php 
-		    if($_SESSION['signed_in'])  
-		    {  
-		        echo 'Hello ' . $_SESSION['username'] . '. Not you? <a href="logout.php">Sign out</a>';  
-		    }  
-		    else  
-		    {  
-		        echo '<a href="login.php">Sign in</a> or <a href="signup.php">create an account</a>.';  
-		    }  
+		<?php
+		if($_SESSION['signed_in'])
+		{
+			echo htmlentities($_SESSION['username']) . ' <a href="logout.php">Logout</a>';
+		}
+		else
+		{
+			echo '<a href="login.php">Sign in</a> or <a href="signup.php">create an account</a>';
+		}
 		?>
 		</div>
 		

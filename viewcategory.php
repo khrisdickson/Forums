@@ -2,7 +2,6 @@
 include 'connectvars.php';
 include 'header.php';
 
-//first select the category based on $_GET['cat_id']
 $sql = "SELECT
 			categoryid,
 			categoryname,
@@ -26,13 +25,11 @@ else
 	}
 	else
 	{
-		//display category data
 		while($row = mysql_fetch_assoc($result))
 		{
 			echo '<h2>Topics in ' . $row['categoryname'] . ' category</h2>';
 		}
 	
-		//do a query for the topics
 		$sql = "SELECT	
 					topic_id,
 					topic_subject,
@@ -57,7 +54,6 @@ else
 			}
 			else
 			{
-				//prepare the table
 				echo '<table border="1">
 					  <tr>
 						<th>Topic</th>
@@ -68,13 +64,23 @@ else
 				{				
 					echo '<tr>';
 						echo '<td class="leftpart">';
-							echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
+							echo '<h3><a href="viewtopic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
 						echo '</td>';
 						echo '<td class="rightpart">';
 							echo date('d-m-Y', strtotime($row['topic_created']));
 						echo '</td>';
 					echo '</tr>';
 				}
+			}
+
+			echo '</table>';
+			if(!$_SESSION['signed_in'])
+			{
+				echo '<tr><td colspan=2>You must be <a href="signin.php">signed in</a> to create a topic. You can also <a href="signup.php">sign up</a> for an account.';
+			}
+			else
+			{
+				echo '<a href = "topic.php">Create new topic</a>';
 			}
 		}
 	}

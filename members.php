@@ -12,18 +12,9 @@ if(mysql_num_rows($result) == 0)
 }
 else
 {
-	//display category data
 	while($row = mysql_fetch_assoc($result))
 	{
 		echo $row["username"] . '<br />';
-		/*if($_SESSION['admin'] == 1)
-		{
-			echo ' <a href = "createadmin.php">make admin </a><br />';
-		}
-		else 
-		{
-			echo '<br />';
-		}*/
 	}
 	 
 }
